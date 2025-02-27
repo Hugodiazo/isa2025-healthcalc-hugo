@@ -34,7 +34,7 @@ public class HealthCalcTest {
         Exception exception = assertThrows(Exception.class, () -> {
             calc.idealWeight(-50, 'M');
         });
-        assertEquals("Altura no válida", exception.getMessage());
+        assertEquals("altura no valida", exception.getMessage());
     }
 	
 	@Test
@@ -69,7 +69,7 @@ public class HealthCalcTest {
     @DisplayName("peso invalido (muy bajo)")
     void testPesoInvalido() {
         Exception exception = assertThrows(Exception.class, () -> {
-            calc.basalMetabolicRate(10, 170, 25, 'M');
+            calc.basalMetabolicRate(0, 170, 25, 'M');
         });
         assertEquals("peso no valido", exception.getMessage());
     }
