@@ -41,3 +41,10 @@ Salida esperada: Excepción indicando que el peso no es válido.
 8.	Edad invalida (menor a 0 o mayor a 120 años)
 Entrada: weight = 70, height = 175, age = -5, gender = 'M'
 Salida esperada: Excepción indicando que la edad no es válida.
+
+
+
+Resultado tests!
+
+
+![Resultado tests! ](project-healthcalc/Imagenes/resultado-tests.jpg)
