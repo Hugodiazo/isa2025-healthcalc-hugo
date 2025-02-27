@@ -48,3 +48,9 @@ Resultado tests!
 
 
 ![Resultado tests! ](project-healthcalc/Imagenes/resultado-tests.jpg)
+
+
+Commits de la practica 1:
+
+
+![Commits de la practica 1: ](project-healthcalc/Imagenes/commits-practica-1.png)
