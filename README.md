@@ -60,3 +60,8 @@ Commits de la practica 1:
 
 En esta practica empezamos creando las ramas para la practica 1 y 2.
 Luego vamos a hacer un diagrama de casos de uso para nuestra healthcalc, que teniamos hasta el momento y le vamos a agregar 2 nuevas funcionalidades, la primera (que nos pide la practica) es para calcular la masa corporal de una persona, y la segunda (una pensada por nosotros) es para calcular la grasa corporal de una persona.
+
+Diagrama de casos de uso:
+
+
+![Diagrama de casos de uso: ](project-healthcalc/Imagenes/caso-de-uso.jpg)
