@@ -79,19 +79,27 @@ Nivel: Usuario
 
 Stakeholders e intereses:
   - Usuario: Quiere conocer su indice de masa corporal para evaluar su estado fisico.
+
 Precondiciones:
   - El usuario debe ingresar su peso en kg y su altura en metros
+
 Garantias minimas:
   - Obtener resultado valido segun la formula del indice de masa corporal
+
 Garantia de exito:
   - El usuario recibe su resultado en una de las siguientes categorias: peso bajo, normal, sobrepeso, obesidad
+
 Escenario principal:
   1. El usuario accede a la calculadora
   2. El usuario ingresa su peso y altura
   3. El sistema calcula el indice de masa corporal con la formula: peso / (altura^2)
   4. El sistema muestra el resultado y la categoría correspondiente
+
 Escenarios alternativos:
+
   2a. Si el usuario ingresa un valor no numerico, el sistema muestra un error y pide ingresar datos validos
   3a. Si el usuario deja un campo vacio, el sistema muestra un mensaje de error
+
 Extensiones:
+
   2b. Se podria agregar una recomendacion basada en el resultado del calculo del indice de masa corporal 
