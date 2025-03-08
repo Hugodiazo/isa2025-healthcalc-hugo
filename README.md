@@ -70,9 +70,13 @@ Luego vamos a hacer un diagrama de casos de uso para nuestra healthcalc, que ten
 ## Especificacion de Casos de Uso para el calculo del Indice de masa corporal:
 
 Nombre: Calculo del indice de masa corporal
+
 Actor principal: Usuario
+
 Ambito: Healthcalc
+
 Nivel: Usuario
+
 Stakeholders e intereses:
   - Usuario: Quiere conocer su indice de masa corporal para evaluar su estado fisico.
 Precondiciones:
