@@ -1,5 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>uma.isa</groupId>
   <artifactId>project-healthcalc</artifactId>
@@ -27,40 +28,62 @@
   </dependencyManagement>
 
   <dependencies>
+    <!-- JUnit 5 -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
       <scope>test</scope>
     </dependency>
+
+    <!-- JUnit Platform Suite (corrige los errores de RunCucumberTest) -->
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-suite</artifactId>
+      <version>1.9.2</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Cucumber Java -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>7.13.0</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Cucumber JUnit para correr los tests -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-junit</artifactId>
+      <version>7.13.0</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Cucumber JUnit 5 para integración con JUnit 5 -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-junit-platform-engine</artifactId>
+      <version>7.13.0</version>
+      <scope>test</scope>
+    </dependency>
+
   </dependencies>
 
   <build>
     <plugins>
-    <plugin>
-      <artifactId>maven-surefire-plugin</artifactId>
-      <version>3.5.2</version>
-      <configuration>
-        <statelessTestsetReporter implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5Xml30StatelessReporter">
-          <disable>false</disable>
-          <version>3.0</version>
-          <usePhrasedFileName>false</usePhrasedFileName>
-          <usePhrasedTestSuiteClassName>true</usePhrasedTestSuiteClassName>
-          <usePhrasedTestCaseClassName>true</usePhrasedTestCaseClassName>
-          <usePhrasedTestCaseMethodName>true</usePhrasedTestCaseMethodName>
-        </statelessTestsetReporter>
-        <consoleOutputReporter implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5ConsoleOutputReporter">
-          <disable>false</disable>
-          <encoding>UTF-8</encoding>
-          <usePhrasedFileName>false</usePhrasedFileName>
-        </consoleOutputReporter>
-        <statelessTestsetInfoReporter implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5StatelessTestsetInfoReporter">
-          <disable>false</disable>
-          <usePhrasedFileName>false</usePhrasedFileName>
-          <usePhrasedClassNameInRunning>true</usePhrasedClassNameInRunning>
-          <usePhrasedClassNameInTestCaseSummary>true</usePhrasedClassNameInTestCaseSummary>
-        </statelessTestsetInfoReporter>
-      </configuration>
-    </plugin>
+      <!-- Plugin de Maven Surefire para correr los tests -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.5.2</version>
+        <configuration>
+          <includes>
+            <include>**/*Test.java</include>
+            <include>**/*IT.java</include>
+            <include>**/*CucumberTest.java</include>
+          </includes>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 
