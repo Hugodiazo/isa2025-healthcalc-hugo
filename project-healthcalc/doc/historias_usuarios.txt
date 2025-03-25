@@ -1,0 +1,27 @@
+Historia de usuario 1: Calculo del Peso Ideal
+
+Como usuario de la calculadora de salud
+Quiero conocer mi peso ideal 
+Para poder saber si estoy saludable
+
+Escenarios de aceptacion:
+El usuario introduce su genero como “M” y altura como 175 cm = retorna 68.75 kg
+El usuario introduce su genero como “F” y altura como 160 cm = retorna 56 kg
+El usuario introduce una altura invalida (ej: -160 cm) = lanza excepcion “altura no valida”
+El usuario introduce un genero invalido (ej:“X”) = lanza excepcion “genero no valido”
+
+-----
+
+Historia de usuario 2: Calculo de la Tasa Metabólica Basal 
+
+Como usuario de la calculadora de salud
+Quiero poder calcular mi tasa metabolica basal
+Para conocer cuantas calorias necesita mi cuerpo
+
+Escenarios de aceptacion:
+Hombre con 70 kg, 175 cm, 25 años = retorna 1724 kcal/día
+Mujer con 60 kg, 165 cm, 30 años = retorna 1383 kcal/día
+Peso invalido (0 kg) = lanza excepcion “peso no valido”
+Edad invalida (-5 años) = lanza excepcion “edad no valida”
+Altura invalida (-160 cm) = lanza excepcion “altura no valida”
+Genero invalido (ej: “X”) = lanza excepcion “genero no valido”

@@ -75,3 +75,12 @@ Tasa Metabolica Basal (bmr):
   - Excepciones por genero invalido
   - Excepciones por edad invalida
 
+
+Test Peso Ideal:
+![Test: ](project-healthcalc/Imagenes/cc-pi1.jpg)
+![Test: ](project-healthcalc/Imagenes/cc-pi2.jpg)
+
+
+Test Tasa Metabolica Basal:
+![Test: ](project-healthcalc/Imagenes/cc-bmr1.jpg)
+![Test: ](project-healthcalc/Imagenes/cc-bmr2.jpg)

@@ -1,0 +1,138 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< uma.isa:project-healthcalc >---------------------
+[INFO] Building project-healthcalc 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ project-healthcalc ---
+[INFO] skip non existing resourceDirectory /Users/hugodiazo/Documents/UMA/ISA/isa2025-healthcalc-hugo/project-healthcalc/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ project-healthcalc ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ project-healthcalc ---
+[INFO] Copying 2 resources from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ project-healthcalc ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.2:test (default-test) @ project-healthcalc ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running healthcalc.HealthCalcTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s -- in healthcalc.HealthCalcTest
+[INFO] Running healthcalc.bdd.RunCucumberTest
+
+@bmr @hombre
+Scenario Outline: Calculo del metabolismo basal para un hombre              # healthcalc/basalrate.feature:15
+  Given tengo una calculadora de salud                                      # healthcalc.bdd.StepDefinitions.tengo_una_calculadora_de_salud()
+  And un usuario de genero "M" con peso 70 kg, altura 175 cm y edad 25 años # healthcalc.bdd.StepDefinitions.un_usuario_de_genero_con_peso_altura_y_edad(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer)
+  When calcula su metabolismo basal                                         # healthcalc.bdd.StepDefinitions.calcula_su_metabolismo_basal()
+  Then la calculadora retorna 1724 kcal-dia                                 # healthcalc.bdd.StepDefinitions.la_calculadora_retorna_kcal_dia(java.lang.Integer)
+
+@bmr @mujer
+Scenario Outline: Calculo del metabolismo basal para una mujer              # healthcalc/basalrate.feature:26
+  Given tengo una calculadora de salud                                      # healthcalc.bdd.StepDefinitions.tengo_una_calculadora_de_salud()
+  And un usuario de genero "F" con peso 60 kg, altura 165 cm y edad 30 años # healthcalc.bdd.StepDefinitions.un_usuario_de_genero_con_peso_altura_y_edad(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer)
+  When calcula su metabolismo basal                                         # healthcalc.bdd.StepDefinitions.calcula_su_metabolismo_basal()
+  Then la calculadora retorna 1383 kcal-dia                                 # healthcalc.bdd.StepDefinitions.la_calculadora_retorna_kcal_dia(java.lang.Integer)
+
+@bmr @error
+Scenario: Calculo del metabolismo basal con peso invalido                  # healthcalc/basalrate.feature:29
+  Given tengo una calculadora de salud                                     # healthcalc.bdd.StepDefinitions.tengo_una_calculadora_de_salud()
+  And un usuario de genero "M" con peso 0 kg, altura 170 cm y edad 25 años # healthcalc.bdd.StepDefinitions.un_usuario_de_genero_con_peso_altura_y_edad(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer)
+  When calcula su metabolismo basal                                        # healthcalc.bdd.StepDefinitions.calcula_su_metabolismo_basal()
+  Then la calculadora lanza una excepcion: peso no valido                  # healthcalc.bdd.StepDefinitions.la_calculadora_lanza_una_excepcion_peso_no_valido()
+
+@bmr @error
+Scenario: Calculo del metabolismo basal con edad invalida                   # healthcalc/basalrate.feature:36
+  Given tengo una calculadora de salud                                      # healthcalc.bdd.StepDefinitions.tengo_una_calculadora_de_salud()
+  And un usuario de genero "M" con peso 70 kg, altura 175 cm y edad -5 años # healthcalc.bdd.StepDefinitions.un_usuario_de_genero_con_peso_altura_y_edad(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer)
+  When calcula su metabolismo basal                                         # healthcalc.bdd.StepDefinitions.calcula_su_metabolismo_basal()
+  Then la calculadora lanza una excepcion: edad no valida                   # healthcalc.bdd.StepDefinitions.la_calculadora_lanza_una_excepcion_edad_no_valida()
+
+@bmr @error
+Scenario: Calculo del metabolismo basal con genero invalido                 # healthcalc/basalrate.feature:43
+  Given tengo una calculadora de salud                                      # healthcalc.bdd.StepDefinitions.tengo_una_calculadora_de_salud()
+  And un usuario de genero "X" con peso 70 kg, altura 175 cm y edad 25 años # healthcalc.bdd.StepDefinitions.un_usuario_de_genero_con_peso_altura_y_edad(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer)
+  When calcula su metabolismo basal                                         # healthcalc.bdd.StepDefinitions.calcula_su_metabolismo_basal()
+  Then la calculadora lanza una excepcion: genero no valido                 # healthcalc.bdd.StepDefinitions.la_calculadora_lanza_una_excepcion_genero_no_valido()
+
+@bmr @error
+Scenario: Calculo del metabolismo basal con altura invalida                  # healthcalc/basalrate.feature:50
+  Given tengo una calculadora de salud                                       # healthcalc.bdd.StepDefinitions.tengo_una_calculadora_de_salud()
+  And un usuario de genero "M" con peso 70 kg, altura -160 cm y edad 25 años # healthcalc.bdd.StepDefinitions.un_usuario_de_genero_con_peso_altura_y_edad(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer)
+  When calcula su metabolismo basal                                          # healthcalc.bdd.StepDefinitions.calcula_su_metabolismo_basal()
+  Then la calculadora lanza una excepcion: altura no valida                  # healthcalc.bdd.StepDefinitions.la_calculadora_lanza_una_excepcion_altura_no_valida()
+
+@tag @tag1
+Scenario: Calculo del peso ideal para un hombre     # healthcalc/idealweight.feature:8
+  Given tengo una calculadora de salud              # healthcalc.bdd.StepDefinitions.tengo_una_calculadora_de_salud()
+  And un usuario de genero "M" con altura de 175 cm # healthcalc.bdd.StepDefinitions.un_usuario_de_genero_con_altura_de(java.lang.String,java.lang.Integer)
+  When calcula su peso ideal                        # healthcalc.bdd.StepDefinitions.calcula_su_peso_ideal()
+  Then la calculadora retorna 68.75 kg              # healthcalc.bdd.StepDefinitions.la_calculadora_retorna_kg(java.lang.Float)
+
+@tag @tag2
+Scenario Outline: Calculo del peso ideal para una mujer # healthcalc/idealweight.feature:24
+  Given tengo una calculadora de salud                  # healthcalc.bdd.StepDefinitions.tengo_una_calculadora_de_salud()
+  And un usuario de genero "F" con altura de 160 cm     # healthcalc.bdd.StepDefinitions.un_usuario_de_genero_con_altura_de(java.lang.String,java.lang.Integer)
+  When calcula su peso ideal                            # healthcalc.bdd.StepDefinitions.calcula_su_peso_ideal()
+  Then la calculadora retorna 56 kg                     # healthcalc.bdd.StepDefinitions.la_calculadora_retorna_kg(java.lang.Float)
+
+@tag @tag2
+Scenario Outline: Calculo del peso ideal para una mujer # healthcalc/idealweight.feature:25
+  Given tengo una calculadora de salud                  # healthcalc.bdd.StepDefinitions.tengo_una_calculadora_de_salud()
+  And un usuario de genero "F" con altura de 170 cm     # healthcalc.bdd.StepDefinitions.un_usuario_de_genero_con_altura_de(java.lang.String,java.lang.Integer)
+  When calcula su peso ideal                            # healthcalc.bdd.StepDefinitions.calcula_su_peso_ideal()
+  Then la calculadora retorna 62 kg                     # healthcalc.bdd.StepDefinitions.la_calculadora_retorna_kg(java.lang.Float)
+
+@tag @tag2
+Scenario Outline: Calculo del peso ideal para una mujer # healthcalc/idealweight.feature:26
+  Given tengo una calculadora de salud                  # healthcalc.bdd.StepDefinitions.tengo_una_calculadora_de_salud()
+  And un usuario de genero "F" con altura de 180 cm     # healthcalc.bdd.StepDefinitions.un_usuario_de_genero_con_altura_de(java.lang.String,java.lang.Integer)
+  When calcula su peso ideal                            # healthcalc.bdd.StepDefinitions.calcula_su_peso_ideal()
+  Then la calculadora retorna 68 kg                     # healthcalc.bdd.StepDefinitions.la_calculadora_retorna_kg(java.lang.Float)
+
+@tag @tag3
+Scenario Outline: Calculo del peso ideal con altura invalida # healthcalc/idealweight.feature:38
+  Given tengo una calculadora de salud                       # healthcalc.bdd.StepDefinitions.tengo_una_calculadora_de_salud()
+  And un usuario de genero "M" con altura de -160 cm         # healthcalc.bdd.StepDefinitions.un_usuario_de_genero_con_altura_de(java.lang.String,java.lang.Integer)
+  When calcula su peso ideal                                 # healthcalc.bdd.StepDefinitions.calcula_su_peso_ideal()
+  Then la calculadora lanza una excepcion: altura no valida  # healthcalc.bdd.StepDefinitions.la_calculadora_lanza_una_excepcion_altura_no_valida()
+
+@tag @tag3
+Scenario Outline: Calculo del peso ideal con altura invalida # healthcalc/idealweight.feature:39
+  Given tengo una calculadora de salud                       # healthcalc.bdd.StepDefinitions.tengo_una_calculadora_de_salud()
+  And un usuario de genero "F" con altura de -1 cm           # healthcalc.bdd.StepDefinitions.un_usuario_de_genero_con_altura_de(java.lang.String,java.lang.Integer)
+  When calcula su peso ideal                                 # healthcalc.bdd.StepDefinitions.calcula_su_peso_ideal()
+  Then la calculadora lanza una excepcion: altura no valida  # healthcalc.bdd.StepDefinitions.la_calculadora_lanza_una_excepcion_altura_no_valida()
+
+@tag @tag4
+Scenario Outline: Calculo del peso ideal con genero invalido # healthcalc/idealweight.feature:51
+  Given tengo una calculadora de salud                       # healthcalc.bdd.StepDefinitions.tengo_una_calculadora_de_salud()
+  And un usuario de genero "X" con altura de 170 cm          # healthcalc.bdd.StepDefinitions.un_usuario_de_genero_con_altura_de(java.lang.String,java.lang.Integer)
+  When calcula su peso ideal                                 # healthcalc.bdd.StepDefinitions.calcula_su_peso_ideal()
+  Then la calculadora lanza una excepcion: genero no valido  # healthcalc.bdd.StepDefinitions.la_calculadora_lanza_una_excepcion_genero_no_valido()
+
+@tag @tag4
+Scenario Outline: Calculo del peso ideal con genero invalido # healthcalc/idealweight.feature:52
+  Given tengo una calculadora de salud                       # healthcalc.bdd.StepDefinitions.tengo_una_calculadora_de_salud()
+  And un usuario de genero "Z" con altura de 160 cm          # healthcalc.bdd.StepDefinitions.un_usuario_de_genero_con_altura_de(java.lang.String,java.lang.Integer)
+  When calcula su peso ideal                                 # healthcalc.bdd.StepDefinitions.calcula_su_peso_ideal()
+  Then la calculadora lanza una excepcion: genero no valido  # healthcalc.bdd.StepDefinitions.la_calculadora_lanza_una_excepcion_genero_no_valido()
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.247 s -- in healthcalc.bdd.RunCucumberTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.746 s
+[INFO] Finished at: 2025-03-25T13:03:23+01:00
+[INFO] ------------------------------------------------------------------------
