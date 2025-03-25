@@ -4,7 +4,7 @@ Health calculator used in Ingeniería del Software Avanzada.
 Vamos a desarrollar una calculadora que permita estimar varios parámetros de salud de una persona,
 como su peso ideal o su tasa metabólica basal (TMB).
 
-Practica 1
+## Practica 1
 
 Con la altura y el género de una persona como entrada, obtenemos como salida su peso ideal.
 Con el peso, altura, género y edad de una persona como entrada, obtenemos como salida su metabolismo basal.
@@ -54,3 +54,24 @@ Commits de la practica 1:
 
 
 ![Commits de la practica 1: ](project-healthcalc/Imagenes/commits-practica-1.png)
+
+
+## Practica 3
+
+Historias de usuario y BDD (Cucumber)
+
+Peso ideal:
+- Escenarios cubiertos:
+  - Peso ideal correcto para generos y alturas
+  - Excepciones por altura invalida
+  - Excepciones por genero invalido
+
+
+Tasa Metabolica Basal (bmr):
+- Escenarios cubiertos:
+  - bmr correcto para genero masculino y femenino
+  - Excepciones por peso invalido
+  - Excepciones por altura invalida
+  - Excepciones por genero invalido
+  - Excepciones por edad invalida
+

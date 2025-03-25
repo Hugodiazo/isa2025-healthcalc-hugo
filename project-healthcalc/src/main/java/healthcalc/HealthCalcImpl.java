@@ -16,6 +16,7 @@ public class HealthCalcImpl implements HealthCalc {
     public float basalMetabolicRate(float weight, int height, int age, char gender) throws Exception {
         if (weight <= 0) throw new Exception("peso no valido");
         if (age <= 0) throw new Exception("edad no valida");
+        if (height <= 0) throw new Exception("altura no valida");
         if (gender != 'M' && gender != 'F') throw new Exception("genero no valido");
 
         return (gender == 'M') ? 
