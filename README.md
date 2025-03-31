@@ -4,7 +4,7 @@ Health calculator used in Ingeniería del Software Avanzada.
 Vamos a desarrollar una calculadora que permita estimar varios parámetros de salud de una persona,
 como su peso ideal o su tasa metabólica basal (TMB).
 
-Practica 1
+## Practica 1
 
 Con la altura y el género de una persona como entrada, obtenemos como salida su peso ideal.
 Con el peso, altura, género y edad de una persona como entrada, obtenemos como salida su metabolismo basal.
@@ -54,3 +54,13 @@ Commits de la practica 1:
 
 
 ![Commits de la practica 1: ](project-healthcalc/Imagenes/commits-practica-1.png)
+
+
+
+
+## Práctica 4: Interfaz gráfica de usuario
+
+
+### Mockup
+
+![Mockup de la interfaz](project-healthcalc/Imagenes/mockup_practica4.png)
