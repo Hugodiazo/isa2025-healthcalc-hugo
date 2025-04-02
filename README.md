@@ -58,9 +58,18 @@ Commits de la practica 1:
 
 
 
-## Práctica 4: Interfaz gráfica de usuario
+## Práctica 4: Interfaz grafica de usuario
+
 
 
 ### Mockup
 
 ![Mockup de la interfaz](project-healthcalc/Imagenes/mockup_practica4.png)
+
+### Interfaz final
+
+![Interfaz final](project-healthcalc/Imagenes/Interfaz-final.png)
+
+### Como ejecutar la calculadora?
+
+java -jar project-healthcalc.jar
