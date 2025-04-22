@@ -58,7 +58,7 @@ Commits de la practica 1:
 
 
 
-## Práctica 4: Interfaz grafica de usuario
+## Practica 4: Interfaz grafica de usuario
 
 
 
@@ -73,3 +73,8 @@ Commits de la practica 1:
 ### Como ejecutar la calculadora?
 
 java -jar project-healthcalc.jar
+
+
+## Practica 5 - Evaluacion de apps
+
+Los formularios de evaluacion se encuentran en la carpeta "evaluation", archivo "app-1-2.pdf"
