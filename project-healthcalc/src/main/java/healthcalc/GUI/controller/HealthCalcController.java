@@ -14,7 +14,7 @@ public class HealthCalcController {
 
     public HealthCalcController(HealthCalcView view) {
         this.view = view;
-        this.model = new HealthCalcImpl(); 
+        this.model = HealthCalcImpl.getInstance();
 
 
         this.view.getBtnPesoIdeal().addActionListener(new ActionListener() {
