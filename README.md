@@ -78,3 +78,12 @@ java -jar project-healthcalc.jar
 ## Practica 5 - Evaluacion de apps
 
 Los formularios de evaluacion se encuentran en la carpeta "evaluation", archivo "app-1-2.pdf"
+
+
+## Practica 6: Patrones de diseño
+
+### Singleton
+
+![Diagrama Singleton](project-healthcalc/design_patterns/Singleton-UML.jpg)
+
+Asegurar una unica instancia de la calculadora con el metodo getInstance().
