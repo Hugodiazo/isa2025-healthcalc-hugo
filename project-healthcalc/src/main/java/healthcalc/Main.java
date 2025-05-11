@@ -8,6 +8,11 @@ public class Main {
 
             System.out.println("BMR: " + bmr);
             System.out.println("Peso ideal: " + pesoIdeal);
+
+            HealthHospital adapter = new HealthCalcAdapter();
+            System.out.println("BMR adaptado: " + adapter.bmr('M', 25, 1.75f, 70000));
+            System.out.println("Peso ideal adaptado: " + adapter.idealWeight('M', 1.75f));
+
         } catch (Exception e) {
             e.printStackTrace();
         }
