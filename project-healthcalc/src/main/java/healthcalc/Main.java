@@ -1,4 +1,9 @@
 package healthcalc;
+
+import healthcalc.strategies.AmericanUnits;
+import healthcalc.strategies.EnglishMessages;
+
+
 public class Main {
     public static void main(String[] args) {
         try {
@@ -29,6 +34,13 @@ public class Main {
             System.out.println("BMR promedio: " + stats.averageBMR());
             System.out.println("Cantidad de hombres: " + stats.countMale());
             System.out.println("Cantidad de mujeres: " + stats.countFemale());
+
+            
+            HealthCalcStrategy strategyCalc = new HealthCalcStrategy(HealthCalcImpl.getInstance());
+
+            strategyCalc.setUnitStrategy(new AmericanUnits());  // o EuropeanUnits
+            strategyCalc.setMessageStrategy(new EnglishMessages());  // o SpanishMessages
+            strategyCalc.calculateBMR(5.8f, 170f, 30, 'M');  // Altura en pies, peso en libras
 
         } catch (Exception e) {
             e.printStackTrace();

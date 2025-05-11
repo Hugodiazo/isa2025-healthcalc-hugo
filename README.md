@@ -84,7 +84,7 @@ Los formularios de evaluacion se encuentran en la carpeta "evaluation", archivo 
 
 ### Singleton
 
-![Diagrama Singleton](project-healthcalc/design_patterns/Singleton-UML.jpg)
+![Diagrama Singleton](project-healthcalc/design_patterns/Singleton-UML.png)
 
 Asegurar una unica instancia de la calculadora con el metodo getInstance().
 
@@ -98,6 +98,13 @@ Adapter: HealthCalcAdapter implementa la interfaz HealthHospital y adapta las un
 
 ### Decorator - HealthStats
 
-![HealthStats UML](project-healthcalc/design_patterns/Decorator-stats.png)
+![HealthStats UML](project-healthcalc/design_patterns/Decorator-stat.png)
 
 Decorator para agregar estadísticas a la calculadora de salud.
+
+
+### Strategy - idiomas
+
+![HealthStats UML](project-healthcalc/design_patterns/Strategy-idiomas.png)
+
+Strategy para poder mostrar el mensaje de resultado de BMR en diferentes idiomas (español o ingles).
