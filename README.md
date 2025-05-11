@@ -87,3 +87,10 @@ Los formularios de evaluacion se encuentran en la carpeta "evaluation", archivo 
 ![Diagrama Singleton](project-healthcalc/design_patterns/Singleton-UML.jpg)
 
 Asegurar una unica instancia de la calculadora con el metodo getInstance().
+
+
+### Adapter hospital-Singleton
+
+![Diagrama Singleton y Adapter](project-healthcalc/design_patterns/Adapter-hospital.png)
+
+Adapter: HealthCalcAdapter implementa la interfaz HealthHospital y adapta las unidades de medida  a las del hospital para reutilizar la logica de la interfaz HealthCalc.
