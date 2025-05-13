@@ -96,11 +96,11 @@ Asegurar una unica instancia de la calculadora con el metodo getInstance().
 Adapter: HealthCalcAdapter implementa la interfaz HealthHospital y adapta las unidades de medida  a las del hospital para reutilizar la logica de la interfaz HealthCalc.
 
 
-### Decorator - HealthStats
+### Proxy - HealthStats
 
-![HealthStats UML](project-healthcalc/design_patterns/Decorator-stat.png)
+![HealthStats UML](project-healthcalc/design_patterns/Proxy-stats.png)
 
-Decorator para agregar estadísticas a la calculadora de salud.
+Proxy para agregar estadisticas a la calculadora de salud.
 
 
 ### Strategy - idiomas

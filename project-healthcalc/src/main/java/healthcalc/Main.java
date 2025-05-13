@@ -19,23 +19,23 @@ public class Main {
             System.out.println("Peso ideal adaptado: " + adapter.idealWeight('M', 1.75f));
 
 
+
             System.out.println("--- TEST STATS ---");
-            HealthCalc statsCalc = new HealthCalcWithStats(HealthCalcImpl.getInstance());
-
-            statsCalc.basalMetabolicRate(70f, 175, 25, 'M');
-            statsCalc.basalMetabolicRate(65f, 160, 30, 'F');
-            statsCalc.idealWeight(175, 'M');
-
-            HealthStats stats = (HealthStats) statsCalc;
-            System.out.println("Total pacientes: " + stats.totalPatients());
-            System.out.println("Altura promedio: " + stats.averageHeight());
-            System.out.println("Peso promedio: " + stats.averageWeight());
-            System.out.println("Edad promedio: " + stats.averageAge());
-            System.out.println("BMR promedio: " + stats.averageBMR());
-            System.out.println("Cantidad de hombres: " + stats.countMale());
-            System.out.println("Cantidad de mujeres: " + stats.countFemale());
-
+            HealthCalcProxy proxy = new HealthCalcProxy(HealthCalcImpl.getInstance());
+            proxy.basalMetabolicRate(70, 175, 25, 'M');
+            proxy.idealWeight(175, 'M');
             
+            System.out.println("--- TEST STATS ---");
+            System.out.println("Total pacientes: " + proxy.totalPatients());
+            System.out.println("Altura promedio: " + proxy.averageHeight());
+            System.out.println("Peso promedio: " + proxy.averageWeight());
+            System.out.println("Edad promedio: " + proxy.averageAge());
+            System.out.println("BMR promedio: " + proxy.averageBMR());
+            System.out.println("Cantidad de hombres: " + proxy.countMale());
+            System.out.println("Cantidad de mujeres: " + proxy.countFemale());
+            
+
+
             HealthCalcStrategy strategyCalc = new HealthCalcStrategy(HealthCalcImpl.getInstance());
 
             strategyCalc.setUnitStrategy(new AmericanUnits());  // o EuropeanUnits
