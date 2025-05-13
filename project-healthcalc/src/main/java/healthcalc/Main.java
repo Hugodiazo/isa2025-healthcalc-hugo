@@ -1,8 +1,6 @@
 package healthcalc;
 
-import healthcalc.strategies.AmericanUnits;
-import healthcalc.strategies.EnglishMessages;
-
+import healthcalc.decorators.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,12 +18,11 @@ public class Main {
 
 
 
-            System.out.println("--- TEST STATS ---");
+            System.out.println("--- TEST STATS / PROXY ---");
             HealthCalcProxy proxy = new HealthCalcProxy(HealthCalcImpl.getInstance());
             proxy.basalMetabolicRate(70, 175, 25, 'M');
             proxy.idealWeight(175, 'M');
             
-            System.out.println("--- TEST STATS ---");
             System.out.println("Total pacientes: " + proxy.totalPatients());
             System.out.println("Altura promedio: " + proxy.averageHeight());
             System.out.println("Peso promedio: " + proxy.averageWeight());
@@ -33,14 +30,29 @@ public class Main {
             System.out.println("BMR promedio: " + proxy.averageBMR());
             System.out.println("Cantidad de hombres: " + proxy.countMale());
             System.out.println("Cantidad de mujeres: " + proxy.countFemale());
-            
+                     
 
+            System.out.println("--- DECORADOR ---");
+            // Entrada única
+            float pesoGramos = 77000;
+            int alturaCm = 180;
+            int edad = 30;
+            char genero = 'M';
 
-            HealthCalcStrategy strategyCalc = new HealthCalcStrategy(HealthCalcImpl.getInstance());
+            // Calculadora base con región europea (gramos a kg)
+            HealthCalc baseCalc = new EuropeanRegionDecorator(HealthCalcImpl.getInstance());
 
-            strategyCalc.setUnitStrategy(new AmericanUnits());  // o EuropeanUnits
-            strategyCalc.setMessageStrategy(new EnglishMessages());  // o SpanishMessages
-            strategyCalc.calculateBMR(5.8f, 170f, 30, 'M');  // Altura en pies, peso en libras
+            // Decoradores de idioma
+            HealthCalc spanishCalc = new SpanishBMRDecorator(baseCalc);
+            HealthCalc englishCalc = new EnglishBMRDecorator(baseCalc);
+
+            // Cálculo e impresión en español
+            System.out.println("--- SALIDA EN ESPAÑOL ---");
+            spanishCalc.basalMetabolicRate(pesoGramos, alturaCm, edad, genero);
+
+            // Cálculo e impresión en inglés (usa las mismas unidades internas, pero muestra en ft/lb)
+            System.out.println("--- SALIDA EN INGLÉS ---");
+            englishCalc.basalMetabolicRate(pesoGramos, alturaCm, edad, genero);
 
         } catch (Exception e) {
             e.printStackTrace();

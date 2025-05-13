@@ -103,8 +103,8 @@ Adapter: HealthCalcAdapter implementa la interfaz HealthHospital y adapta las un
 Proxy para agregar estadisticas a la calculadora de salud.
 
 
-### Strategy - idiomas
+### Decorator - idiomas
 
-![HealthStats UML](project-healthcalc/design_patterns/Strategy-idiomas.png)
+![HealthStats UML](project-healthcalc/design_patterns/Decorator-idiomas.png)
 
-Strategy para poder mostrar el mensaje de resultado de BMR en diferentes idiomas (español o ingles).
+Decorator para poder mostrar el mensaje de resultado de BMR en diferentes idiomas (español o ingles).
