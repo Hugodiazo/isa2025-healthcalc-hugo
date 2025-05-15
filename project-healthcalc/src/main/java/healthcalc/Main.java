@@ -2,6 +2,12 @@ package healthcalc;
 
 import healthcalc.decorators.*;
 
+import healthcalc.person.DefaultPerson;
+import healthcalc.person.Gender;
+import healthcalc.person.Person;
+import healthcalc.metrics.*;
+
+
 public class Main {
     public static void main(String[] args) {
         try {
@@ -53,6 +59,16 @@ public class Main {
             // Cálculo e impresión en inglés (usa las mismas unidades internas, pero muestra en ft/lb)
             System.out.println("--- SALIDA EN INGLÉS ---");
             englishCalc.basalMetabolicRate(pesoGramos, alturaCm, edad, genero);
+
+
+            System.out.println("--- PRACTICA 7 ---");
+            Person person = new DefaultPerson(70f, 175f, 25, Gender.MALE);
+
+            MetabolicMetrics mm = new MetabolicMetricsImpl();
+            CardiovascularMetrics cm = new CardiovascularMetricsImpl();
+
+            System.out.printf("Peso ideal: %.2f kg%n", cm.getIdealBodyWeight(person));
+            System.out.printf("TMB: %.2f kcal/día%n", mm.basalMetabolicRate(person));
 
         } catch (Exception e) {
             e.printStackTrace();
