@@ -18,20 +18,20 @@ public class HealthCalcProxy implements HealthCalc, HealthStats {
     }
 
     @Override
-    public float idealWeight(int height, char gender) throws Exception {
+    public float calculateIdealWeight(int height, char gender) throws Exception {
         if (gender == 'M') hombres++;
         else if (gender == 'F') mujeres++;
 
         alturas.add((float) height);
-        return realCalc.idealWeight(height, gender);
+        return realCalc.calculateIdealWeight(height, gender);
     }
 
     @Override
-    public float basalMetabolicRate(float weight, int height, int age, char gender) throws Exception {
+    public float calculateBMR(float weight, int height, int age, char gender) throws Exception {
         pesos.add(weight);
         edades.add(age);
 
-        float bmr = realCalc.basalMetabolicRate(weight, height, age, gender);
+        float bmr = realCalc.calculateBMR(weight, height, age, gender);
         bmrs.add(bmr);
 
         return bmr;

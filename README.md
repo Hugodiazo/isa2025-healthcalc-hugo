@@ -108,3 +108,51 @@ Proxy para agregar estadisticas a la calculadora de salud.
 ![HealthStats UML](project-healthcalc/design_patterns/Decorator-idiomas.png)
 
 Decorator para poder mostrar el mensaje de resultado de BMR en diferentes idiomas (español o ingles).
+
+
+
+
+## Practica 7: Refactorings
+
+
+
+### 1. Extraccion de clase para "persona"
+
+1) Bad smell: Data Clumps  
+2) Refactoring aplicado: Extract Class  
+3) Tipo: Class refactoring  
+4) Se creo la interfaz "Person" para representar de forma encapsulada los datos de una persona (peso, altura, edad y genero), que antes eran pasados por separado a varios metodos.  
+5) Cambios: 3 clases modificadas
+
+
+### 2. Reemplazo de multiples parametros por un objeto "Person"
+
+1) Bad smell: Long Parameter List  
+2) Refactoring aplicado: Introduce Parameter Object  
+3) Tipo: Method refactoring  
+4) Se modificaron los metodos "basalMetabolicRate" y "idealWeight" en las interfaces "MetabolicMetrics" y "CardiovascularMetrics" para que reciban un objeto "Person", reduciendo la cantidad de parametros.  
+5) Cambios: 3 metodos actualizados.
+
+
+### 3. Reemplazo primitivo por enumerado "Gender"
+
+1) Bad smell: Primitive Obsession  
+2) Refactoring aplicado: Replace Primitive with Enum  
+3) Tipo: Attribute refactoring  
+4) Se reemplazo el uso de "char" para representar el genero por un tipo "enum Gender", con valores `MALE` y `FEMALE`, que es mas seguro.  
+5) Cambios: 2 clases modificadas y 1 enum creado.
+
+
+### 4. Renombrado de metodos poco claros
+
+1) Bad smell: Unclear Name  
+2) Refactoring aplicado: Rename Method  
+3) Tipo: Method refactoring  
+4) Se renombraron los metodos "idealWeight" a "calculateIdealWeight" y "basalMetabolicRate" a "calculateBMR" en la interfaz "HealthCalc" y por ende en toda la calculadora afectada por HealthCalc.  
+5) Cambios: 2 metodos renombrados, 8 clases modificadas (HealthCalc, HealthCalcImpl, HealthCalcAdapter, Main, HealthCalcProxy, HealthCalcTest, decoradores, GUI-Controller)
+
+
+
+Todos los refactorings fueron aplicados exitosamente. El proyecto compila sin errores y todos los tests de las practicas anteriores siguen pasando correctamente, como vemos en la siguiente imagen.
+
+![HealthStats UML](project-healthcalc/Imagenes/tests-after-refactoring.jpg)

@@ -8,12 +8,12 @@ public class HealthCalcAdapter implements HealthHospital {
     public double bmr(char gender, int age, float heightMeters, int weightGrams) throws Exception {
         float heightCm = heightMeters * 100;
         float weightKg = weightGrams / 1000f;
-        return calculator.basalMetabolicRate(weightKg, (int) heightCm, age, gender);
+        return calculator.calculateBMR(weightKg, (int) heightCm, age, gender);
     }
 
     @Override
-    public int idealWeight(char gender, float heightMeters) throws Exception {
+    public int calculateIdealWeight(char gender, float heightMeters) throws Exception {
         int heightCm = Math.round(heightMeters * 100);
-        return Math.round(calculator.idealWeight(heightCm, gender));
+        return Math.round(calculator.calculateIdealWeight(heightCm, gender));
     }
 }

@@ -16,14 +16,14 @@ public class HealthCalcTest {
 	@Test
 	@DisplayName("calculo para hombre")
 	void testIdealWeightHombre() throws Exception {
-		float resultado = calc.idealWeight(175, 'M');
+		float resultado = calc.calculateIdealWeight(175, 'M');
         assertEquals(68.75f, resultado, 0.1, "el peso ideal debe ser 68.75 kg");
 	}
 	
 	@Test
     @DisplayName("calculo para mujer")
     void testIdealWeightMujer() throws Exception {
-        float resultado = calc.idealWeight(160, 'F');
+        float resultado = calc.calculateIdealWeight(160, 'F');
         assertEquals(56f, resultado, 0.1, "el peso ideal debe ser 56 kg");
     }
 	// 55.5 segun el chat y segun yo 56
@@ -32,7 +32,7 @@ public class HealthCalcTest {
     @DisplayName("altura invalida (negativa)")
     void testAlturaInvalida() {
         Exception exception = assertThrows(Exception.class, () -> {
-            calc.idealWeight(-50, 'M');
+            calc.calculateIdealWeight(-50, 'M');
         });
         assertEquals("altura no valida", exception.getMessage());
     }
@@ -41,7 +41,7 @@ public class HealthCalcTest {
     @DisplayName("genero invalido")
     void testGeneroInvalido() {
         Exception exception = assertThrows(Exception.class, () -> {
-            calc.idealWeight(170, 'X');
+            calc.calculateIdealWeight(170, 'X');
         });
         assertEquals("genero no valido", exception.getMessage());
     }
@@ -52,7 +52,7 @@ public class HealthCalcTest {
 	@Test
     @DisplayName("calculo normal para hombre")
     void testBMRHombre() throws Exception {
-        float resultado = calc.basalMetabolicRate(70, 175, 25, 'M');
+        float resultado = calc.calculateBMR(70, 175, 25, 'M');
         assertEquals(1724, resultado, 1, "el metabolismo basal debe ser 1724 kcal/día");
     }
 	// a mi me dio 1724.052 y al chat le dio 1668
@@ -60,7 +60,7 @@ public class HealthCalcTest {
     @Test
     @DisplayName("calculo normal para mujer")
     void testBMRMujer() throws Exception {
-        float resultado = calc.basalMetabolicRate(60, 165, 30, 'F');
+        float resultado = calc.calculateBMR(60, 165, 30, 'F');
         assertEquals(1383, resultado, 1, "el metabolismo basal debe ser 1383 kcal/día");
     }
     // a mi me dio 1383,683 y al chat le dio 1400
@@ -69,7 +69,7 @@ public class HealthCalcTest {
     @DisplayName("peso invalido (muy bajo)")
     void testPesoInvalido() {
         Exception exception = assertThrows(Exception.class, () -> {
-            calc.basalMetabolicRate(0, 170, 25, 'M');
+            calc.calculateBMR(0, 170, 25, 'M');
         });
         assertEquals("peso no valido", exception.getMessage());
     }
@@ -78,7 +78,7 @@ public class HealthCalcTest {
     @DisplayName("edad invalida")
     void testEdadInvalida() {
         Exception exception = assertThrows(Exception.class, () -> {
-            calc.basalMetabolicRate(70, 175, -5, 'M');
+            calc.calculateBMR(70, 175, -5, 'M');
         });
         assertEquals("edad no valida", exception.getMessage());
     }

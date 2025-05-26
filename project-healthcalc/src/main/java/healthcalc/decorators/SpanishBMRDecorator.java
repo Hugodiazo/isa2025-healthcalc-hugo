@@ -9,8 +9,8 @@ public class SpanishBMRDecorator extends LanguageDecorator {
     }
 
     @Override
-    public float basalMetabolicRate(float weight, int height, int age, char gender) throws Exception {
-        float bmr = innerCalc.basalMetabolicRate(weight, height, age, gender);
+    public float calculateBMR(float weight, int height, int age, char gender) throws Exception {
+        float bmr = innerCalc.calculateBMR(weight, height, age, gender);
 
         // Aplicamos mensaje con valores YA CONVERTIDOS (porque vienen desde RegionDecorator)
         float convertedWeight = weight;

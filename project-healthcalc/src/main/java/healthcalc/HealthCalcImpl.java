@@ -14,7 +14,7 @@ public class HealthCalcImpl implements HealthCalc {
     }
 
     @Override
-    public float idealWeight(int height, char gender) throws Exception {
+    public float calculateIdealWeight(int height, char gender) throws Exception {
         if (height <= 0) throw new Exception("altura no valida");
         if (gender != 'M' && gender != 'F') throw new Exception("genero no valido");
 
@@ -24,7 +24,7 @@ public class HealthCalcImpl implements HealthCalc {
     }
 
     @Override
-    public float basalMetabolicRate(float weight, int height, int age, char gender) throws Exception {
+    public float calculateBMR(float weight, int height, int age, char gender) throws Exception {
         if (weight <= 0) throw new Exception("peso no valido");
         if (age <= 0) throw new Exception("edad no valida");
         if (gender != 'M' && gender != 'F') throw new Exception("genero no valido");

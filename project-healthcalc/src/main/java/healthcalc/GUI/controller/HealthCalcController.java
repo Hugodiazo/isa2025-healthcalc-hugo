@@ -37,7 +37,7 @@ public class HealthCalcController {
             int altura = Integer.parseInt(view.getTxtAltura().getText());
             char genero = view.getGeneroSeleccionado().equalsIgnoreCase("masculino") ? 'M' : 'F';
 
-            float resultado = model.idealWeight(altura, genero);
+            float resultado = model.calculateIdealWeight(altura, genero);
             view.setResultado(String.format("%.2f kg", resultado));
             view.setMensaje("");
         } catch (Exception ex) {
@@ -52,7 +52,7 @@ public class HealthCalcController {
             int edad = Integer.parseInt(view.getTxtEdad().getText());
             char genero = view.getGeneroSeleccionado().equalsIgnoreCase("masculino") ? 'M' : 'F';
 
-            float resultado = model.basalMetabolicRate(peso, altura, edad, genero);
+            float resultado = model.calculateBMR(peso, altura, edad, genero);
             view.setResultado(String.format("%.2f kcal", resultado));
             view.setMensaje("");
         } catch (Exception ex) {

@@ -10,12 +10,12 @@ public abstract class AbstractDecorator implements HealthCalc {
     }
 
     @Override
-    public float idealWeight(int height, char gender) throws Exception {
-        return innerCalc.idealWeight(height, gender);
+    public float calculateIdealWeight(int height, char gender) throws Exception {
+        return innerCalc.calculateIdealWeight(height, gender);
     }
 
     @Override
-    public float basalMetabolicRate(float weight, int height, int age, char gender) throws Exception {
-        return innerCalc.basalMetabolicRate(weight, height, age, gender);
+    public float calculateBMR(float weight, int height, int age, char gender) throws Exception {
+        return innerCalc.calculateBMR(weight, height, age, gender);
     }
 }

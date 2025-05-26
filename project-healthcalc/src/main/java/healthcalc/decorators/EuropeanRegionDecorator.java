@@ -9,9 +9,9 @@ public class EuropeanRegionDecorator extends RegionDecorator {
     }
 
     @Override
-    public float basalMetabolicRate(float weight, int height, int age, char gender) throws Exception {
+    public float calculateBMR(float weight, int height, int age, char gender) throws Exception {
         float weightKg = convertWeight(weight);
-        return innerCalc.basalMetabolicRate(weightKg, height, age, gender);
+        return innerCalc.calculateBMR(weightKg, height, age, gender);
     }
 
     @Override

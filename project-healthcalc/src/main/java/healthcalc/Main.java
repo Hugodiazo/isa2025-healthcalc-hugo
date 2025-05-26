@@ -12,22 +12,22 @@ public class Main {
     public static void main(String[] args) {
         try {
             HealthCalc calc = HealthCalcImpl.getInstance();
-            float bmr = calc.basalMetabolicRate(70f, 175, 25, 'M');
-            float pesoIdeal = calc.idealWeight(175, 'M');
+            float bmr = calc.calculateBMR(70f, 175, 25, 'M');
+            float pesoIdeal = calc.calculateIdealWeight(175, 'M');
 
             System.out.println("BMR: " + bmr);
             System.out.println("Peso ideal: " + pesoIdeal);
 
             HealthHospital adapter = new HealthCalcAdapter();
             System.out.println("BMR adaptado: " + adapter.bmr('M', 25, 1.75f, 70000));
-            System.out.println("Peso ideal adaptado: " + adapter.idealWeight('M', 1.75f));
+            System.out.println("Peso ideal adaptado: " + adapter.calculateIdealWeight('M', 1.75f));
 
 
 
             System.out.println("--- TEST STATS / PROXY ---");
             HealthCalcProxy proxy = new HealthCalcProxy(HealthCalcImpl.getInstance());
-            proxy.basalMetabolicRate(70, 175, 25, 'M');
-            proxy.idealWeight(175, 'M');
+            proxy.calculateBMR(70, 175, 25, 'M');
+            proxy.calculateIdealWeight(175, 'M');
             
             System.out.println("Total pacientes: " + proxy.totalPatients());
             System.out.println("Altura promedio: " + proxy.averageHeight());
@@ -54,11 +54,11 @@ public class Main {
 
             // Cálculo e impresión en español
             System.out.println("--- SALIDA EN ESPAÑOL ---");
-            spanishCalc.basalMetabolicRate(pesoGramos, alturaCm, edad, genero);
+            spanishCalc.calculateBMR(pesoGramos, alturaCm, edad, genero);
 
             // Cálculo e impresión en inglés (usa las mismas unidades internas, pero muestra en ft/lb)
             System.out.println("--- SALIDA EN INGLÉS ---");
-            englishCalc.basalMetabolicRate(pesoGramos, alturaCm, edad, genero);
+            englishCalc.calculateBMR(pesoGramos, alturaCm, edad, genero);
 
 
             System.out.println("--- PRACTICA 7 ---");
